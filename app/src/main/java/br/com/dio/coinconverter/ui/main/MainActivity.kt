@@ -1,10 +1,14 @@
 package br.com.dio.coinconverter.ui.main
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.Window
 import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import br.com.dio.coinconverter.R
@@ -27,6 +31,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val window: Window = window
+        window.setBackgroundDrawableResource(R.drawable.gradient_toolbar)
         setContentView(binding.root)
 
         bindAdapters()
@@ -103,6 +109,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("ResourceAsColor")
     private fun success(it: MainViewModel.State.Success) {
         dialog.dismiss()
         binding.btnSave.isEnabled = true

@@ -1,8 +1,12 @@
 package br.com.dio.coinconverter.ui.history
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
+import br.com.dio.coinconverter.R
 import br.com.dio.coinconverter.core.extensions.createDialog
 import br.com.dio.coinconverter.core.extensions.createProgressDialog
 import br.com.dio.coinconverter.databinding.ActivityHistoryBinding
@@ -18,6 +22,8 @@ class HistoryActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val window: Window = window
+        window.setBackgroundDrawableResource(R.drawable.gradient_toolbar)
         setContentView(binding.root)
 
         binding.rvHistory.adapter = adapter
@@ -25,13 +31,12 @@ class HistoryActivity : AppCompatActivity() {
             DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL)
         )
 
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
-
+        bindListeners()
         bindObserve()
 
         lifecycle.addObserver(viewModel)
     }
+
 
     private fun bindObserve() {
         viewModel.state.observe(this) {
@@ -48,6 +53,12 @@ class HistoryActivity : AppCompatActivity() {
                     adapter.submitList(it.list)
                 }
             }
+        }
+    }
+
+    private fun bindListeners(){
+        binding.imageButton.setOnClickListener {
+            finish()
         }
     }
 
