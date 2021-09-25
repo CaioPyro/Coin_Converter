@@ -4,6 +4,7 @@ import java.util.*
 
 enum class Coin(val locale: Locale) {
     USD(Locale.US),
+    EUR(Locale.UK),
     CAD(Locale.CANADA),
     BRL(Locale("pt", "BR")),
     ARS(Locale("es", "AR"))
