@@ -1,5 +1,6 @@
 package br.com.dio.coinconverter.domain.di
 
+import br.com.dio.coinconverter.domain.DeleteExchangeUseCase
 import br.com.dio.coinconverter.domain.GetExchangeValueUseCase
 import br.com.dio.coinconverter.domain.ListExchangeUseCase
 import br.com.dio.coinconverter.domain.SaveExchangeUseCase
@@ -17,6 +18,7 @@ object DomainModule {
         return module {
             factory { ListExchangeUseCase(get()) }
             factory { SaveExchangeUseCase(get()) }
+            factory { DeleteExchangeUseCase(get()) }
             factory { GetExchangeValueUseCase(get()) }
         }
     }

@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.Window
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
@@ -22,6 +23,8 @@ import br.com.dio.coinconverter.databinding.ActivityMainBinding
 import br.com.dio.coinconverter.presentation.MainViewModel
 import br.com.dio.coinconverter.ui.history.HistoryActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -80,9 +83,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnSave.setOnClickListener {
+            val date = Calendar.getInstance().time
+            val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+
             val value = viewModel.state.value
             (value as? MainViewModel.State.Success)?.let {
-                val exchange = it.exchange.copy(bid = it.exchange.bid * binding.tilValue.text.toDouble())
+                val exchange = it.exchange.copy(bid = it.exchange.bid * binding.tilValue.text.toDouble(), date = dateFormat.format(date).toString(), entry = binding.tilValue.text.toDouble())
                 viewModel.saveExchange(exchange)
             }
         }

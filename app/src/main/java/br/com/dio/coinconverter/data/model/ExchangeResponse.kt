@@ -12,5 +12,7 @@ data class ExchangeResponseValue(
     val code: String,
     val codein: String,
     val name: String,
-    val bid: Double
+    val bid: Double,
+    val date: String,
+    val entry: Double
 )

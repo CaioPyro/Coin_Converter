@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/light_black"
     tools:context=".ui.main.MainActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/gradient_toolbar"
+        android:background="@color/green"
         app:layout_constraintTop_toTopOf="parent"
         app:title="@string/app_name"
         app:titleTextColor="#FBFBFB" />
@@ -35,8 +35,13 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/layout_padding"
+        android:layout_marginTop="45dp"
         android:hint="Valor"
+        android:textColorHint="#FFFFFF"
+        app:boxStrokeColor="#00B359"
+        app:endIconTint="#00B359"
+        app:helperTextTextColor="#00B359"
+        app:hintTextColor="#FDFDFD"
         app:layout_constraintEnd_toEndOf="@id/guide_end"
         app:layout_constraintStart_toStartOf="@id/guide_start"
         app:layout_constraintTop_toBottomOf="@id/toolbar">
@@ -44,7 +49,10 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:shadowColor="#00B359"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -53,9 +61,13 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/layout_padding"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="@dimen/layout_half_padding"
         android:hint="Converter de:"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="#00B359"
+        app:endIconMode="dropdown_menu"
+        app:endIconTint="#F8F7F7"
         app:layout_constraintEnd_toStartOf="@id/til_to"
         app:layout_constraintStart_toStartOf="@id/guide_start"
         app:layout_constraintTop_toBottomOf="@id/til_value">
@@ -64,8 +76,12 @@
             android:id="@+id/tv_from"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:backgroundTint="#00B359"
+            android:dropDownSelector="@color/cardview_light_background"
             android:focusable="false"
-            android:inputType="none" />
+            android:inputType="none"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -76,6 +92,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/layout_half_padding"
         android:hint="Para:"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="#00B359"
+        app:endIconTint="#F8F6F6"
         app:layout_constraintEnd_toEndOf="@id/guide_end"
         app:layout_constraintStart_toEndOf="@id/til_from"
         app:layout_constraintTop_toTopOf="@id/til_from">
@@ -84,8 +103,11 @@
             android:id="@+id/tv_to"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:backgroundTint="#00B359"
             android:focusable="false"
-            android:inputType="none" />
+            android:inputType="none"
+            android:textColor="#F4F4F4"
+            android:textColorHint="@color/green" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -93,7 +115,7 @@
         android:id="@+id/btn_converter"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/layout_padding"
+        android:layout_marginTop="30dp"
         android:enabled="false"
         android:text="Converter"
         app:layout_constraintEnd_toEndOf="@id/guide_end"
@@ -115,10 +137,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
+        android:textColor="#00B359"
+        android:textColorHint="#00B359"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/guide_end"
         app:layout_constraintStart_toStartOf="@id/guide_start"
         app:layout_constraintTop_toBottomOf="@id/btn_save"
+        app:layout_constraintVertical_bias="0.39"
         tools:text="5,27" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

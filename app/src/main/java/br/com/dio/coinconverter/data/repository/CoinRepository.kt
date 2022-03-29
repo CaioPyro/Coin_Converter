@@ -7,5 +7,6 @@ interface CoinRepository {
     suspend fun getExchangeValue(coins: String): Flow<ExchangeResponseValue>
 
     suspend fun save(exchange: ExchangeResponseValue)
+    suspend fun delete(exchange: ExchangeResponseValue)
     fun list(): Flow<List<ExchangeResponseValue>>
 }

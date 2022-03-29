@@ -1,9 +1,14 @@
 package br.com.dio.coinconverter.core.extensions
 
+import android.app.Dialog
 import android.content.Context
+import android.content.DialogInterface
+import android.os.Bundle
 import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AlertDialog.*
 import br.com.dio.coinconverter.R
+import br.com.dio.coinconverter.ui.history.HistoryActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 fun Context.createDialog(block: MaterialAlertDialogBuilder.() -> Unit = {}): AlertDialog {
